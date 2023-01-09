@@ -1,0 +1,54 @@
+// Solution 1 (using arrays)
+
+def sum_of_distinct_elements(set1, set2):
+    sum = 0
+    for element in set1:
+        if element not in set2:
+            sum += element
+    for element in set2:
+        if element not in set1:
+            sum += element
+    return sum
+
+// Solution 2 (using hash table):
+
+def sum_of_distinct_elements(set1, set2):
+    element_count = {}
+    for element in set1 + set2:
+        if element in element_count:
+            element_count[element] += 1
+        else:
+            element_count[element] = 1
+    sum = 0
+    for element, count in element_count.items():
+        if count == 1:
+            sum += element
+    return sum
+
+
+// Solution 3 (using arrays):
+
+def sum_of_overlapping_elements(set1, set2):
+    sum = 0
+    for element in set1:
+        if element in set2:
+            sum += element
+    return sum
+
+
+// Solution 4 (using hash table):
+
+def sum_of_overlapping_elements(set1, set2):
+    element_count = {}
+    for element in set1 + set2:
+        if element in element_count:
+            element_count[element] += 1
+        else:
+            element_count[element] = 1
+    sum = 0
+    for element, count in element_count.items():
+        if count == 2:
+            sum += element
+    return sum
+
+
